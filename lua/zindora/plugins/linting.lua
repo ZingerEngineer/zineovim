@@ -64,7 +64,7 @@ return {
         group    = lint_augroup,
         callback = function()
           if vim.bo.modifiable then
-            lint.try_lint()
+            lint.try_lint(nil, { ignore_errors = true })
           end
         end,
         desc = 'Run linter on buffer events',
@@ -78,7 +78,7 @@ return {
     vim.keymap.set('n', '<leader>tl', function()
       lint_enabled = not lint_enabled
       if lint_enabled then
-        lint.try_lint()
+        lint.try_lint(nil, { ignore_errors = true })
         vim.notify('Linting enabled', vim.log.levels.INFO, { title = 'zindora' })
       else
         -- Clear all diagnostics from the lint namespace
