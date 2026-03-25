@@ -1,14 +1,19 @@
-tags
-test.sh
-.luarc.json
-nvim
-
+# Spell word lists (machine-local)
 spell/
 
-# In your personal fork, you likely want to comment this, since it's recommended to track
-# lazy-lock.json in version control - see https://lazy.folke.io/usage/lockfile
-# For the official `nvim-lua/kickstart.nvim` git repository, we leave it ignored to avoid unneeded
-# merge conflicts.
-lazy-lock.json
-
+# macOS metadata
 .DS_Store
+
+# Vim swap / backup files (we disable these in options.lua, but just in case)
+*.swp
+*.swo
+*~
+
+# Local Lua LSP config (machine-specific paths)
+.luarc.json
+.luarc.jsonc
+
+# NOTE: lazy-lock.json is intentionally tracked in this personal config repo.
+# It pins exact plugin versions so reinstalling on a new machine gives the
+# same environment. Uncomment the line below only if you want to opt out.
+# lazy-lock.json
