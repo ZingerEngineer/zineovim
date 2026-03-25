@@ -3,7 +3,7 @@
 #   zindora — Neovim config installer
 #
 #   Usage on a fresh machine:
-#     curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/nvim/main/install.sh | bash
+#     curl -fsSL https://raw.githubusercontent.com/ZingerEngineer/zineovim/main/install.sh | bash
 #   Or after cloning:
 #     bash install.sh
 #
@@ -30,7 +30,7 @@ warn()    { echo -e "${YELLOW}[warn]${NC}  $*"; }
 error()   { echo -e "${RED}[error]${NC} $*"; exit 1; }
 
 # ── Repo URL — update this to your GitHub repo ───────────────
-REPO="https://github.com/YOUR_USERNAME/nvim.git"
+REPO="git@github.com:ZingerEngineer/zineovim.git"
 NVIM_CONFIG="$HOME/.config/nvim"
 
 echo ""

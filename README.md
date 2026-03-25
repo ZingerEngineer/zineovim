@@ -32,7 +32,7 @@ Personal Neovim configuration. Ayu dark theme. Rich UI. Built for web, systems, 
 ## Install
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/nvim/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/ZingerEngineer/zineovim/main/install.sh)
 ```
 
 ### Requirements
