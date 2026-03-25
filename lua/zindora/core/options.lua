@@ -11,6 +11,11 @@
 vim.g.mapleader      = ' '
 vim.g.maplocalleader = ' '
 
+-- Disable unused language providers to silence :checkhealth warnings.
+vim.g.loaded_perl_provider   = 0
+vim.g.loaded_ruby_provider   = 0
+vim.g.loaded_python3_provider = 0
+
 -- Tell plugins (and our own config) that a Nerd Font is available.
 -- Set to false if your terminal font doesn't support Nerd Font glyphs.
 vim.g.have_nerd_font = true

@@ -26,6 +26,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- Add the site directory so nvim-treesitter parsers are found at runtime.
+vim.opt.rtp:prepend(vim.fn.stdpath('data') .. '/site')
+
 require('lazy').setup({
   -- Import every file in lua/zindora/plugins/*.lua automatically.
   -- No need to register plugins here manually — just add a file there.
@@ -37,6 +40,9 @@ require('lazy').setup({
     lazy = false,   -- load plugins at startup unless they specify otherwise
     version = false, -- always use the latest git commit, not semver tags
   },
+
+  -- Disable luarocks/hererocks integration — we don't use any rocks packages.
+  rocks = { enabled = false },
 
   install = {
     -- Fallback colorscheme while plugins are being installed

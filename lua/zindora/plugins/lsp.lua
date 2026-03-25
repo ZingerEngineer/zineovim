@@ -134,8 +134,8 @@ return {
       -- TypeScript / JavaScript (handles .ts .tsx .js .jsx)
       ts_ls = {
         filetypes = {
-          'javascript', 'javascriptreact', 'javascript.jsx',
-          'typescript', 'typescriptreact', 'typescript.tsx',
+          'javascript', 'javascriptreact',
+          'typescript', 'typescriptreact',
         },
         settings = {
           typescript = {
@@ -169,7 +169,7 @@ return {
 
       -- Angular — needs the project's node_modules to find @angular/language-server
       angularls = {
-        filetypes = { 'typescript', 'html', 'typescriptreact', 'typescript.tsx' },
+        filetypes = { 'typescript', 'html', 'typescriptreact' },
         on_new_config = function(new_config, new_root_dir)
           local node_modules = new_root_dir .. '/node_modules'
           new_config.cmd = {
@@ -214,8 +214,8 @@ return {
         },
       },
 
-      -- ── Go ──────────────────────────────────────────────
-      gopls = {
+      -- ── Go (only when Go is installed on this machine) ──
+      gopls = vim.fn.executable('go') == 1 and {
         settings = {
           gopls = {
             analyses   = { unusedparams = true, shadow = true },
@@ -232,7 +232,7 @@ return {
             },
           },
         },
-      },
+      } or nil,
 
       -- ── C / C++ ─────────────────────────────────────────
       clangd = {
