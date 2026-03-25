@@ -308,11 +308,15 @@ return {
       },
     })
 
-    -- ── Register all servers with lspconfig ────────────────
-    local lspconfig = require('lspconfig')
+    -- ── Register all servers with the new vim.lsp API ─────
+    -- nvim-lspconfig v3 + Neovim 0.11 use vim.lsp.config / vim.lsp.enable
+    -- instead of require('lspconfig')[server].setup().
+    -- lspconfig still ships default cmd/filetypes/root_patterns for each
+    -- server — vim.lsp.config() merges our overrides on top of those defaults.
     for name, config in pairs(servers) do
       config.capabilities = capabilities
-      lspconfig[name].setup(config)
+      vim.lsp.config(name, config)
     end
+    vim.lsp.enable(vim.tbl_keys(servers))
   end,
 }

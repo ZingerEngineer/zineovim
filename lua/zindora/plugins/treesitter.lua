@@ -51,7 +51,7 @@ return {
       'lua', 'luadoc',
 
       -- Data / config formats
-      'json', 'jsonc', 'yaml', 'toml',
+      'json', 'yaml', 'toml',
 
       -- Markup
       'markdown', 'markdown_inline',
