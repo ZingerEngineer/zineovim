@@ -295,18 +295,18 @@ return {
 
     -- mason-tool-installer: ensure formatters/linters are installed.
     -- (These are used by conform.nvim and nvim-lint in Phase 4.)
-    require('mason-tool-installer').setup({
-      ensure_installed = {
-        -- Formatters
-        'stylua',       -- Lua
-        'biome',        -- JS / TS / JSX / TSX / JSON / CSS
-        'prettierd',    -- HTML (biome doesn't cover HTML yet)
-        'goimports',    -- Go (formats + organises imports)
-        'clang-format', -- C / C++
-        -- Linters
-        'markdownlint-cli2',
-      },
-    })
+    local tools = {
+      'stylua',            -- Lua formatter
+      'biome',             -- JS / TS / JSX / TSX / JSON / CSS formatter + linter
+      'prettierd',         -- HTML formatter (biome doesn't support HTML yet)
+      'clang-format',      -- C / C++ formatter
+      'markdownlint-cli2', -- Markdown linter
+    }
+    -- goimports requires Go — only install it when Go is available
+    if vim.fn.executable('go') == 1 then
+      table.insert(tools, 'goimports')
+    end
+    require('mason-tool-installer').setup({ ensure_installed = tools })
 
     -- ── Register all servers with the new vim.lsp API ─────
     -- nvim-lspconfig v3 + Neovim 0.11 use vim.lsp.config / vim.lsp.enable
